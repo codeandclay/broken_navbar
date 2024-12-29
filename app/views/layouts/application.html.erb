@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DeleteMeNavbar</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+        <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+
+  <header class="site-head" role="banner">
+      <a href="#main-content" class="skip-link">Skip to content</a>
+      <div class="wrapper">
+        <div class="site-head__inner">
+          <a href="/" aria-label="ACME home" class="site-head__brand">
+            <!-- <img src="images/logo.svg" alt="ACME logo" /> -->
+          </a>
+          <burger-menu max-width="600">
+            <nav class="navigation" aria-label="primary">
+              <ul role="list">
+                <li>
+                  <a href="/">Home</a>
+                </li>
+                <li>
+                  <a href="/a_page">A page</a>
+                </li>
+                <li>
+                  <a href="/another_page">Another page</a>
+                </li>
+              </ul>
+            </nav>
+          </burger-menu>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" tabindex="-1" class="wrapper">
+      <%= yield %>
+    </main>
+
+    <%= javascript_include_tag "burger-menu.js", type: "module" %>
+  </body>
+</html>
